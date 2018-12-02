@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import handler404
+from django.conf.urls import handler500
 
 urlpatterns = [
     path('users/', include('users.urls')),
@@ -22,3 +24,7 @@ urlpatterns = [
     #path('account/', include('django.contrib.auth.urls')),
     path('', include('django.contrib.auth.urls')),
 ]
+
+#handler404 = 'myapp.views.error_404_view'
+handler404 = 'users.views.handler404'
+handler500 = 'users.views.handler500'
