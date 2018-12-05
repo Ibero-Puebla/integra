@@ -1,26 +1,33 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from django.http import HttpResponse
 
+@login_required
 def index(request):
     return render(request, 'users/index.html')
 
-def users(request, question_id):
-    return HttpResponse("Lista de usuarios %s." % question_id)
+def users(request):
+    return render(request, 'users/users.html')
 
-def devices(request, question_id):
-    response = "Lista de dispostivos %s."
-    return HttpResponse(response % question_id)
+def devices(request):
+    return render(request, 'users/devices.html')
 
-def humidity(request, question_id):
-    return HttpResponse("Humedad %s." % question_id)
+def humidity(request):
+    return render(request, 'users/humidity.html')
 
-def temperature(request, question_id):
-    return HttpResponse("Temperatura %s." % question_id)
+def temperature(request):
+    return render(request, 'users/temperature.html')
 
-def uvauvb(request, question_id):
-    return HttpResponse("UVA - UVB %s." % question_id)
+def uvauvb(request):
+    return render(request, 'users/uvauvb.html')
 
-def air(request, question_id):
-    return HttpResponse("Calidad del aire %s." % question_id)
+def air(request):
+    return render(request, 'users/air.html')
+
+def handler404(request):
+    return render(request, 'users/404.html', status=404)
+
+def handler500(request):
+    return render(request, 'users/500.html', status=500)

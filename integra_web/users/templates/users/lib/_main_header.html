@@ -28,11 +28,30 @@
             <ul class="nav navbar-nav">
                 {% block header_dropdowns %}
                     {% if request.user.is_authenticated %}
-                        <li>
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              <i class="far fa-bell"></i>
-                          </a>
-                        </li>
+                      <!-- Notifications Menu -->
+                      <li class="dropdown notifications-menu">
+                        <!-- Menu toggle button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="far fa-bell"></i>
+                          <span class="label label-warning">2</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li class="header">Tienes 2 notificaciones</li>
+                          <li>
+                            <!-- Inner Menu: contains the notifications -->
+                            <ul class="menu">
+                              <li>
+                                <!-- start notification -->
+                                <a href="#">
+                                  <i class="fa fa-users text-aqua"></i> 2 sensores de humedad fallaron
+                                </a>
+                              </li>
+                              <!-- end notification -->
+                            </ul>
+                          </li>
+                          <li class="footer"><a href="#">Ver todo</a></li>
+                        </ul>
+                      </li>
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="{% avatar_url size=50 %}" class="user-image" alt="User Image">
@@ -44,7 +63,7 @@
                                     <img src="{% avatar_url size=180 %}" class="img-circle" alt="User Image">
                                     <p>
                                         {% firstof request.user.get_short_name request.user.get_username %}
-                                        <small>Member since {{ request.user.date_joined }}</small>
+                                        <small>Miembro desde {{ request.user.date_joined }}</small>
                                     </p>
                                 </li>
                                 {% endblock %}
@@ -54,10 +73,10 @@
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <a href="{% block change_password_url %}{% url 'admin:password_change' %}{% endblock %}"
-                                           class="btn btn-default btn-flat">{% trans 'Change password' %}</a>
+                                           class="btn btn-default btn-flat">{% trans 'Cambiar contraseña' %}</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{% block logout_url %}{% logout_url %}{% endblock %}" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="{% block logout_url %}{% logout_url %}{% endblock %}" class="btn btn-default btn-flat">Cerrar sesión</a>
                                     </div>
                                 </li>
                                 {% endblock %}
