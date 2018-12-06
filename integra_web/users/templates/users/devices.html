@@ -16,6 +16,69 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Nombre del sensor</th>
+              <th>Tipo</th>
+              <th>Valor maximo</th>
+              <th>Valor minimo</th>
+              <th>Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><a href=""data-toggle="modal" data-target="#modal-edit">Sensor1</a></td>
+              <td>Humedad</td>
+              <td>2</td>
+              <td>15</td>
+              <td>21/10/2018</td>
+            </tr>
+            <tr>
+              <td><a href=""data-toggle="modal" data-target="#modal-edit">Sensor2</a></td>
+              <td>Temperatura</td>
+              <td>15</td>
+              <td>25</td>
+              <td>21/10/2018</td>
+            </tr>
+            <tr>
+              <td><a href=""data-toggle="modal" data-target="#modal-edit">Sensor3</a></td>
+              <td>UVA / UVB</td>
+              <td>1</td>
+              <td>50</td>
+              <td>21/10/2018</td>
+            </tr>
+            <tr>
+              <td><a href=""data-toggle="modal" data-target="#modal-edit">Sensor4</a></td>
+              <td>Calidad de aire</td>
+              <td>5</td>
+              <td>10</td>
+              <td>21/10/2018</td>
+            </tr>
+            <tr>
+              <td><a href=""data-toggle="modal" data-target="#modal-edit">Sensor5</a></td>
+              <td>Humedad</td>
+              <td>2</td>
+              <td>6</td>
+              <td>21/10/2018</td>
+            </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+
 
   <div class="modal fade" id="modal-add">
     <div class="modal-dialog">
@@ -34,39 +97,31 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="inputNombre">Nombre</label>
-                      <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+                      <label for="inputNombreSensor">Nombre del sensor</label>
+                      <input type="text" class="form-control" id="inputNombreSensor" placeholder="Nombre del sensor">
                     </div>
                     <div class="form-group">
-                      <label for="inputEmail1">Correo electronico</label>
-                      <input type="email" class="form-control" id="inputEmail1" placeholder="Correo electronico">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputPassword">Contraseña</label>
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputEmpresa">Empresa</label>
-                      <input type="text" class="form-control" id="inputEmpresa" placeholder="Empresa">
+                      <label for="inputValMin">Valor mínimo</label>
+                      <input type="text" class="form-control" id="inputValMin" placeholder="Valor mínimo">
                     </div>
                   </div>
                   <div class="col-md-6">
+                    <!-- select -->
                     <div class="form-group">
-                      <label for="inputApellido">Apellidos</label>
-                      <input type="text" class="form-control" id="inputApellido" placeholder="Apellidos">
+                      <label>Tipo de sensor</label>
+                      <select class="form-control">
+                        <option>Humedad</option>
+                        <option>Temperatura</option>
+                        <option>UVA UVB</option>
+                        <option>Calidad del aire</option>
+                        <option>Vibración</option>
+                        <option>Presión</option>
+                        <option>Corriente</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="inputEmail">Teléfono</label>
-                      <input type="phone" class="form-control" id="inputEmail" placeholder="Teléfono">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputPassword2">Confirmar contraseña</label>
-                      <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmar contraseña">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="inputFecha">Fecha</label>
-                      <input type="date" class="form-control" id="inputFecha" placeholder="Fecha">
+                      <label for="inputValMax">Valor máximo</label>
+                      <input type="text" class="form-control" id="inputValMax" placeholder="Valor máximo">
                     </div>
                   </div>
                 </div>
@@ -78,6 +133,71 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" form="EditForm" class="btn btn-primary">Añadir sensor</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modal-edit">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" style="color: #0abab5; font-weight: bold;">Editar sensor</h3>
+        </div>
+        <div class="box-body box-profile">
+          <div class="modal-body">
+            <!-- form start -->
+            <form role="form" id="EditForm" action="/users/users/" method="post">
+              {% csrf_token %}
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputNombreSensor">Nombre del sensor</label>
+                      <input type="text" class="form-control" id="inputNombreSensor" placeholder="Nombre del sensor">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputValMin">Valor mínimo</label>
+                      <input type="text" class="form-control" id="inputValMin" placeholder="Valor mínimo">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Tipo de sensor</label>
+                      <select class="form-control">
+                        <option>Humedad</option>
+                        <option>Temperatura</option>
+                        <option>UVA UVB</option>
+                        <option>Calidad del aire</option>
+                        <option>Vibración</option>
+                        <option>Presión</option>
+                        <option>Corriente</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputValMax">Valor máximo</label>
+                      <input type="text" class="form-control" id="inputValMax" placeholder="Valor máximo">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+            </form>
+            <!-- /.form -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" form="EditForm" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Eliminar sensor</button>
             <button type="submit" form="EditForm" class="btn btn-primary">Guardar cambios</button>
           </div>
         </div>
@@ -88,6 +208,29 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+
+
+  <div class="modal modal-danger fade" id="modal-delete" style="padding-top: 160px;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">Eliminar</h4>
+        </div>
+        <div class="modal-body">
+          <p>Esta seguro de eliminar el sensor?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-outline">Eliminar</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
 </section>
 
 {% endblock %}
