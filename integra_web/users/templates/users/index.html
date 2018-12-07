@@ -30,11 +30,31 @@
           <div class="row">
             <div class="col-md-12">
               <div class="chart-responsive">
-                <canvas id="chart-temp"></canvas>
+                <canvas id="chart-temp" height="290"></canvas>
               </div>
+
               <!-- ./chart-responsive -->
             </div>
             <!-- /.col -->
+            <div class="col-xs-12" style="position: absolute;top: 280px;">
+              <h2 class="text-center">27º</h2>
+            </div>
+
+            <div class="col-xs-12" style="position: absolute;top: 325px;">
+              <div class="col-xs-10">
+                <h4>0</h4>
+              </div>
+              <div class="col-xs-2">
+                <h4>200</h4>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <select class="form-control">
+                <option>Celcius</option>
+                <option>Fahrenheit</option>
+              </select>
+            </div>
 
           </div>
           <!-- /.row -->
@@ -263,20 +283,22 @@
           labels: ["UVA", "UVB"],
           datasets: [{
               label: ["UVA", "UVB"],
-              data: [2, 7],
+              data: [35, 65],
               backgroundColor: [
-                  'rgba(131, 235, 154, 0.8)',
-                  'rgba(245, 171, 60, 0.96)'
+                  'rgba(51, 222, 221, 0.8)',
+                  'rgba(97, 97, 97, 0.96)'
 
               ],
               borderColor: [
-                  'rgba(51, 222, 94, 1)',
-                  'rgba(247, 182, 56, 1)'
+                  'rgba(0, 255, 254, 0.8)',
+                  'rgba(64, 63, 63, 0.96)'
               ],
               borderWidth: 1
           }]
       },
       options: {
+        rotation: -Math.PI,
+        circumference: Math.PI
 
       }
   });
