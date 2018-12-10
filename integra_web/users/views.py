@@ -26,6 +26,18 @@ def uvauvb(request):
 def air(request):
     return render(request, 'users/air.html')
 
+def industry(request):
+    return render(request, 'users/industry.html')
+
+def voltage(request):
+    return render(request, 'users/voltage.html')
+
+def pressure(request):
+    return render(request, 'users/pressure.html')
+
+def vibration(request):
+    return render(request, 'users/vibration.html')
+
 def handler404(request):
     return render(request, 'users/404.html', status=404)
 

@@ -14,4 +14,8 @@ urlpatterns = [
     path('temperature/', views.temperature, name='temperature'),
     path('uvauvb/', views.uvauvb, name='uvauvb'),
     path('air/', views.air, name='air'),
+    path('industry/', views.industry, name='industry'),
+    path('voltage/', views.voltage, name='voltage'),
+    path('pressure/', views.pressure, name='pressure'),
+    path('vibration/', views.vibration, name='vibration'),
 ]

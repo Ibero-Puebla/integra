@@ -1,6 +1,257 @@
 {% extends 'users/base.html' %}
-
+{% load static %}
 {% block title %}My App{% endblock %}
-{% block content %}
-    Aqui va el contenido de usuarios.
+{% block page_actions %}
+<style>
+  .example-modal .modal {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    display: block;
+    z-index: 1;
+  }
+
+  .example-modal .modal {
+    background: transparent !important;
+  }
+</style>
+{% endblock %}
+
+{% block content_outer %}
+  <!-- Main content -->
+  <section class="content">
+    <!-- Titulo -->
+    <div class="box box-primary color-palette-box">
+      <div class="box-header with-border">
+        <h3 class="box-title"> Alta de usuarios</h3>
+        <button type="button" class="btn btn-primary  pull-right" data-toggle="modal" data-target="#modal-add"><span class="glyphicon glyphicon-plus-sign"></span> Añadir nuevo usuario</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box box-primary">
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Empresa</th>
+                <th>Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Oliver Ochoa</a></td>
+                <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Editar
+                </button></td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Adriana Lopez</a></td>
+                <td>prueba@integra.com</td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Eduardo Cantoran</a></td>
+                <td>prueba@integra.com</td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Carlos Alberto</a></td>
+                <td>prueba@integra.com</td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Aletvia Anaid Lecona</a></td>
+                <td>prueba@integra.com</td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+              <tr>
+                <td><a href=""data-toggle="modal" data-target="#modal-default">Leticia Ruiz</a></td>
+                <td>prueba@integra.com</td>
+                <td>2221564892</td>
+                <td>IDIT</td>
+                <td>21/10/2018</td>
+              </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
+      <!-- /.col -->
+
+    </div>
+  </section>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" style="color: #0abab5; font-weight: bold;">Edición de usuario</h3>
+        </div>
+        <div class="box-body box-profile">
+          <div class="modal-body">
+            <img class="profile-user-img img-responsive img-circle" src="{% static "users/dist/img/user3-128x128.jpg" %} ">
+            <h3 class="profile-username text-center">Nina Mcintire</h3>
+            <p class="text-muted text-center">Software Engineer</p>
+
+            <!-- form start -->
+            <form role="form" id="EditForm" action="/users/users/" method="post">
+              {% csrf_token %}
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre de usuario</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Correo electronico</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo electronico">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Telefono</label>
+                  <input type="phone" class="form-control" id="exampleInputEmail1" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Empresa</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Empresa">
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+            </form>
+            <!-- /.form -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" form="EditForm" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modal-add">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title text-center" style="color: #0abab5; font-weight: bold;">Alta de usuarios</h3>
+        </div>
+        <div class="box-body box-profile">
+          <div class="modal-body">
+            <!-- form start -->
+            <form role="form" id="EditForm" action="/users/users/" method="post">
+              {% csrf_token %}
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputNombre">Nombre</label>
+                      <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail1">Correo electronico</label>
+                      <input type="email" class="form-control" id="inputEmail1" placeholder="Correo electronico">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword">Contraseña</label>
+                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmpresa">Empresa</label>
+                      <input type="text" class="form-control" id="inputEmpresa" placeholder="Empresa">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputApellido">Apellidos</label>
+                      <input type="text" class="form-control" id="inputApellido" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputEmail">Teléfono</label>
+                      <input type="phone" class="form-control" id="inputEmail" placeholder="Teléfono">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword2">Confirmar contraseña</label>
+                      <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmar contraseña">
+                    </div>
+
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Permisos</label>
+                      <select class="form-control">
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.box-body -->
+            </form>
+            <!-- /.form -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="submit" form="EditForm" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+{% endblock %}
+
+{% block javascript %}
+{% include 'adminlte/lib/_scripts.html' %}
+  <!-- DataTables -->
+  <script src="{% static "users/bower_components/datatables.net/js/jquery.dataTables.min.js" %} "></script>
+  <script src="{% static "users/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" %} "></script>
+
+  <!-- page script -->
+  <script>
+    $(function () {
+
+      $('#example1').DataTable({
+        'paging'      : true,
+        'lengthChange': true,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
 {% endblock %}
