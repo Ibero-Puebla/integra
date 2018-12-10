@@ -26,3 +26,6 @@ def air(request):
 
 def industry(request):
     return render(request, 'users/industry.html')
+
+def voltage(request):
+    return render(request, 'users/voltage.html')
