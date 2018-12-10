@@ -29,3 +29,9 @@ def industry(request):
 
 def voltage(request):
     return render(request, 'users/voltage.html')
+
+def pressure(request):
+    return render(request, 'users/pressure.html')
+
+def vibration(request):
+    return render(request, 'users/vibration.html')

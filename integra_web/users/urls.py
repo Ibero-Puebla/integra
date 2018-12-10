@@ -15,4 +15,6 @@ urlpatterns = [
     path('air/', views.air, name='air'),
     path('industry/', views.industry, name='industry'),
     path('voltage/', views.voltage, name='voltage'),
+    path('pressure/', views.pressure, name='pressure'),
+    path('vibration/', views.vibration, name='vibration'),
 ]
