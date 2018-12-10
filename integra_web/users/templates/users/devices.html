@@ -234,3 +234,25 @@
 </section>
 
 {% endblock %}
+
+{% block javascript %}
+{% include 'adminlte/lib/_scripts.html' %}
+  <!-- DataTables -->
+  <script src="{% static "users/bower_components/datatables.net/js/jquery.dataTables.min.js" %} "></script>
+  <script src="{% static "users/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" %} "></script>
+
+  <!-- page script -->
+  <script>
+    $(function () {
+
+      $('#example1').DataTable({
+        'paging'      : true,
+        'lengthChange': true,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
+{% endblock %}

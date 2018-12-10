@@ -137,14 +137,7 @@
                   <label for="exampleInputEmail1">Empresa</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Empresa">
                 </div>
-                <!-- select -->
-                <div class="form-group">
-                  <label>Permisos</label>
-                  <select class="form-control">
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                  </select>
-                </div>
+
               </div>
               <!-- /.box-body -->
             </form>
@@ -242,10 +235,7 @@
 {% endblock %}
 
 {% block javascript %}
-  <!-- jQuery 3 -->
-  <script src="{% static "users/bower_components/jquery/dist/jquery.min.js" %} "></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="{% static "users/bower_components/bootstrap/dist/js/bootstrap.min.js" %} "></script>
+{% include 'adminlte/lib/_scripts.html' %}
   <!-- DataTables -->
   <script src="{% static "users/bower_components/datatables.net/js/jquery.dataTables.min.js" %} "></script>
   <script src="{% static "users/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" %} "></script>

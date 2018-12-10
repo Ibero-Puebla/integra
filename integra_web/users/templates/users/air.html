@@ -7,7 +7,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
 
-          <i class="fas fa-sun"></i>
+          <i class="fas fa-wind"></i>
 
           <h3 class="box-title">Calidad del aire</h3>
           <div class="box-tools pull-right">
@@ -48,9 +48,6 @@
     <div class="col-md-5">
       <div class="box box-primary">
         <div class="box-header with-border">
-
-          <i class="fas fa-sun"></i>
-
           <h3 class="box-title">IAQ</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -248,8 +245,25 @@
 </div>
 {% endblock %}
 {% block javascript %}
-<!-- jQuery 3 -->
-<script src="{% static "users/bower_components/jquery/dist/jquery.min.js" %} "></script>
+{% include 'adminlte/lib/_scripts.html' %}
+  <!-- DataTables -->
+  <script src="{% static "users/bower_components/datatables.net/js/jquery.dataTables.min.js" %} "></script>
+  <script src="{% static "users/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" %} "></script>
+
+  <!-- page script -->
+  <script>
+    $(function () {
+
+      $('#example1').DataTable({
+        'paging'      : true,
+        'lengthChange': true,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>
 <!-- ChartJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <!-- jQuery Knob -->
