@@ -23,3 +23,6 @@ def uvauvb(request):
 
 def air(request):
     return render(request, 'users/air.html')
+
+def industry(request):
+    return render(request, 'users/industry.html')
