@@ -243,8 +243,7 @@
 </div>
 {% endblock %}
 {% block javascript %}
-<!-- jQuery 3 -->
-<script src="{% static "users/bower_components/jquery/dist/jquery.min.js" %} "></script>
+{% include 'adminlte/lib/_scripts.html' %}
 <!-- ChartJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <!-- jQuery Knob -->
